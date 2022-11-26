@@ -5,18 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 
 
 
-@Data
-@AllArgsConstructor
-@Builder
-@NoArgsConstructor
 @Entity
 public class Movies{
     
@@ -25,7 +17,55 @@ public class Movies{
     private long id;
     private String titulo;
     private String genero;
-    private String anoLancamento;
+    private Long anoLancamento;
+  
+  
+
+    
+    public Movies() {
+    }
+
+    public Movies(String titulo, String genero, Long anoLancamento) {
+        this.titulo = titulo;
+        this.genero = genero;
+        this.anoLancamento = anoLancamento;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public Long getAnoLancamento() {
+        return anoLancamento;
+    }
+
+    public void setAnoLancamento(Long anoLancamento) {
+        this.anoLancamento = anoLancamento;
+    }
+
+   
+
+
 
 
     

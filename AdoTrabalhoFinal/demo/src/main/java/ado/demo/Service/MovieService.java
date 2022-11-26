@@ -1,7 +1,6 @@
 package ado.demo.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,12 +24,4 @@ public class MovieService {
         return movieRepository.findAll();
     }
 
-    public void removePorID(Long id){
-        movieRepository.deleteById(id);
-    }
-
-    public Optional<Movies> buscarPorId(Long id){
-        return movieRepository.findById(id);
-
-    }
 }
