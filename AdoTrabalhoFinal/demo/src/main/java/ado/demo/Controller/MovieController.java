@@ -32,29 +32,52 @@ public class MovieController {
         return modelAndView;
     }
 
+    @GetMapping("/lista")
+    public List criarLista(){
+        ModelAndView modelAndView = new ModelAndView("lista");
+        List<Movies> listaFilmes = movieService.listaFilme();
+        modelAndView.addObject("lista", listaFilmes);
+
+        System.out.println("########################################################################");
+        System.out.println("########################################################################");
+        System.out.println("########################################################################");
+        System.out.println("########################################################################");
+        System.out.println("########################################################################");
+        System.out.println("########################################################################");
+        System.out.println("########################################################################");
+        System.out.println("########################################################################");
+        System.out.println("########################################################################");
+        System.out.println("########################################################################");
+        System.out.println(listaFilmes);
+
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("list.html");
+
+        return listaFilmes;
+    }
+
+
     @PostMapping(value="/createMovie")
     public ModelAndView salvar(Movies movies){
 
-        System.out.println(" #####################################################################################################################:");    
-
-     //   System.out.println("Titulo do filme salvos: " + movies);    
-
-        System.out.println("Titulo do filme salvos: " + movies.getTitulo());    
-        System.out.println("Gênero do filme salvos: " + movies.getGenero());    
-        System.out.println("Ano de lançamento do filme salvos: " + movies.getAnoLancamento());    
 
         movieService.save(movies);
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index.html");
+        modelAndView.setViewName("list.html");
+      
         return modelAndView;
     }
 
 
-    @GetMapping(value="/findAll")
-    public List<Movies> listaFilmes(){
-        return movieService.listaFilme();
 
+    @GetMapping("/findAll")
+    public List listaFilmes(){
+
+        List<Movies> listaFilmes = movieService.listaFilme();
+
+        return listaFilmes;
     }
 
 
