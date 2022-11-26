@@ -33,7 +33,7 @@ public class MovieController {
     }
 
     @PostMapping(value="/createMovie")
-    public void salvar(Movies movies){
+    public ModelAndView salvar(Movies movies){
 
         System.out.println(" #####################################################################################################################:");    
 
@@ -44,6 +44,10 @@ public class MovieController {
         System.out.println("Ano de lançamento do filme salvos: " + movies.getAnoLancamento());    
 
         movieService.save(movies);
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index.html");
+        return modelAndView;
     }
 
 
