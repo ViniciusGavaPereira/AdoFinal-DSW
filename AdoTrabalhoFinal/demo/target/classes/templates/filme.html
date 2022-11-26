@@ -17,15 +17,21 @@
       <form method="POST" action="/createMovie">
         <div class="form-group">
           <label for="exampleInputEmail1">Nome do filme</label>
-          <input type="text" name="titulo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Coloque o nome do filme">
+          <input type="text" name="titulo" class="form-control"  required id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Coloque o nome do filme">
         </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Gênero do filme</label>
-          <input type="text"  name="genero" class="form-control" id="exampleInputPassword1" placeholder="Defina o gênero do filme">
-        </div>
+        <select name="genero" required="required" class="form-select" aria-label="Default select example">
+          <option value="" >Escolha o gênero do filme</option>
+          <option value="">Terror</option>
+          <option value="Acao">Ação</option>
+          <option value="FiccaoCientifica">Ficção cientifca</option>
+          <option value="CowBoy">CowBoy</option>
+          <option value="Anime">Anime</option>
+          <option value="Romance">Romance</option>
+
+        </select>
         <div class="form-group">
             <label for="exampleInputPassword1">Gênero do filme</label>
-            <input type="number"   name="anoLancamento" class="form-control" min ="1960" max="2022"id="exampleInputPassword1" placeholder="Escolha o ano de lançamento do filme">
+            <input type="number"   name="anoLancamento" class="form-control" required min ="1960" max="2022"id="exampleInputPassword1" placeholder="Escolha o ano de lançamento do filme">
           </div>
        
 
