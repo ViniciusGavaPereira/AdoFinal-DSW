@@ -23,10 +23,9 @@ public class Movies{
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String nome;
-    private long nota;
-    private String imagem;
-    private String sinopse;
+    private String titulo;
+    private String genero;
+    private String anoLancamento;
 
 
     
