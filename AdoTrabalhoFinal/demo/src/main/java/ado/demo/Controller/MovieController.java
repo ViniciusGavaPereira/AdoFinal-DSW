@@ -28,7 +28,7 @@ public class MovieController {
 
 
 
-    @GetMapping("/telaInicial")
+    @GetMapping
     public ModelAndView criarTelaInicial(){
         ModelAndView mav = new ModelAndView("/index");
         mav.addObject("listaFilmes", movieService.listaFilme());
