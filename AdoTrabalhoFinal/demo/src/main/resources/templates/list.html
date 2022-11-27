@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
+    <html lang="PT" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" ></html>
     <title>Página inicial</title>
 
     <!-- CSS only -->
@@ -10,31 +11,32 @@
 
 <body>
 
-    <h1>Lista de filmes</h1>
+    <h1>Filmes cadastrados</h1>
 
     <section class="cartaofilme">
 
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">VAI TOMAR NO CU do filme</th>
-                    <th scope="col">Sinopse do jnon</th>
-                    <th scope="col">Gênero do filme</th>
-                </tr>
+                    <th scope="row">#</th>
+                    <th scope="row">MAMA EU</th>
+                    <th scope="row">Sinopse do jnon</th>
+                    <th scope="row">Gênero do filme</th>
             </thead>
 
             <tbody>
-                <tr th:each="filme : ${Movies}">
-                   <td data-th-text="${filme.titulo}"></td>
-                   <td data-th-text="${filme.genero}"></td>
-                   <td data-th-text="${filme.anoLancamento}"></td>
 
-                </tr>
+                <tr data-th-each="filme : ${filmes}">
+                    <td data-th-text="${filme.titulo}"></td>
+                    <td data-th-text="${filme.genero}"></td>
+                    <td data-th-text="${filme.anoLancamento}"></td>
+                 </tr>
 
             </tbody>
         </table>
       
+        <a href="/">Voltar para a tela inicial</a>
+        <br>
         <a href="/gerarTela">Acrescentar filme novo</a>
 
     </section>

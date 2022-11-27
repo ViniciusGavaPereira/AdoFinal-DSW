@@ -2,12 +2,14 @@ package ado.demo.Controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
 
 import java.util.List;
 
@@ -32,8 +34,23 @@ public class MovieController {
         return modelAndView;
     }
 
+
+
+
+    
+    @PostMapping(value="/createMovie")
+    public ModelAndView salvar(Movies movies){
+
+        movieService.save(movies);
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("list.html");
+        return modelAndView;
+
+    }
+
     @GetMapping("/lista")
-    public List criarLista(){
+    public ModelAndView criarLista(){
         ModelAndView modelAndView = new ModelAndView("lista");
         List<Movies> listaFilmes = movieService.listaFilme();
         modelAndView.addObject("lista", listaFilmes);
@@ -51,14 +68,19 @@ public class MovieController {
         System.out.println(listaFilmes);
 
 
-        ModelAndView modelAndView = new ModelAndView();
+
         modelAndView.setViewName("list.html");
 
-        return listaFilmes;
+        return modelAndView;
     }
 
 
-    @PostMapping(value="/createMovie")
+
+
+
+   /* FUNCIONA 
+   
+   @PostMapping(value="/createMovie")
     public ModelAndView salvar(Movies movies){
 
 
@@ -69,15 +91,19 @@ public class MovieController {
       
         return modelAndView;
     }
+ */
+
 
 
 
     @GetMapping("/findAll")
-    public List listaFilmes(){
+    public String listaFilmes(ModelAndView model){
 
         List<Movies> listaFilmes = movieService.listaFilme();
 
-        return listaFilmes;
+        model.addObject("list", listaFilmes);
+
+        return "list.html";
     }
 
 
