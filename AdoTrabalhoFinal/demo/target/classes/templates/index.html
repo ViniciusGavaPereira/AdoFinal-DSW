@@ -17,19 +17,19 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nome do filme</th>
-                    <th scope="col">Sinopse do filme</th>
-                    <th scope="col">Gênero do filme</th>
+                    <th scope="row">Nome do filme</th>
+                    <th scope="row">Sinopse do filme</th>
+                    <th scope="row">Gênero do filme</th>
                 </tr>
             </thead>
 
             <tbody>
-                <tr data-th-each="filmes : ${listaFilmes}">
-                   <td data-th-text="${filmes.titulo}"></td>
-                   <td data-th-text="${filmes.genero}"></td>
-                   <td data-th-text="${filmes.anoLancamento}"></td>
-                </tr>
+                <tbody data-th-each="filme :  ${listaFilmes}" >
+
+                    <td data-th-text="${filme.titulo}"></td>
+                    <td data-th-text="${filme.genero}"></td>
+                    <td data-th-text="${filme.anoLancamento}"></td>
+                </tbody>
 
             </tbody>
         </table>

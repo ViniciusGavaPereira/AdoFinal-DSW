@@ -28,24 +28,20 @@ public class MovieController {
 
 
 
+    @GetMapping("/telaInicial")
+    public ModelAndView criarTelaInicial(){
+        ModelAndView mav = new ModelAndView("/index");
+        mav.addObject("listaFilmes", movieService.listaFilme());
+
+        return mav;
+    }
+
     @GetMapping("/gerarTela")
     public ModelAndView criarTela(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("filme.html");
         return modelAndView;
     }
-
-
-    @GetMapping("/findAll")
-    public List listaFilmes(ModelAndView model){
-
-        List<Movies> listaFilmes = movieService.listaFilme();
-
-        model.addObject("list", listaFilmes);
-
-        return listaFilmes;
-    }
-
 
     
     @PostMapping(value="/createMovie")
@@ -56,31 +52,8 @@ public class MovieController {
         ModelAndView mav = new ModelAndView("/list");
         mav.addObject("listaFilmes", movieService.listaFilme());
 
-        System.out.println(mav);
         return mav;
     }
-
-/*
- *   
-    @PostMapping(value="/createMovie")
-    public ModelAndView salvar(Movies movies){
-
-        movieService.save(movies);
-
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("list.html");
-        return modelAndView;
-
-    }
-
- * 
- * 
- */
-
-
-   
-
-
 
     @GetMapping("/gerarTela2")
     public ModelAndView messages() {
@@ -93,20 +66,7 @@ public class MovieController {
 
         return mav;
     }
-   /* FUNCIONA 
-   
-     @PostMapping(value="/createMovie")
-    public ModelAndView salvar(Movies movies){
-
-        movieService.save(movies);
-
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("list.html");
-        return modelAndView;
-
-    }
-
- */
+ 
 
 
 

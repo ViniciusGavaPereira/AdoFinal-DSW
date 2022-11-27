@@ -28,17 +28,13 @@
 
             <tbody data-th-each="filme :  ${listaFilmes}" >
 
-                <td data-th-text="${filme.titulo}"></td>
+                <td data-th-text="${filme.titulo}">Filme não cadastrado</td>
                 <td data-th-text="${filme.genero}"></td>
                 <td data-th-text="${filme.anoLancamento}"></td>
-
-
-                <p></p>
-
             </tbody>
         </table>
       
-        <a href="/">Voltar para a tela inicial</a>
+        <a href="/telaInicial">Voltar para a tela inicial</a>
         <br>
         <a href="/gerarTela">Acrescentar filme novo</a>
 
