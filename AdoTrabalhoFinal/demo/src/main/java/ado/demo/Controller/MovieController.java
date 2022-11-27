@@ -49,11 +49,15 @@ public class MovieController {
 
     
     @PostMapping(value="/createMovie")
-    public void salvar(Movies movies){
+    public ModelAndView salvar(Movies movies){
 
         movieService.save(movies);
 
+        ModelAndView mav = new ModelAndView("/list");
+        mav.addObject("listaFilmes", movieService.listaFilme());
 
+        System.out.println(mav);
+        return mav;
     }
 
 /*
@@ -83,17 +87,6 @@ public class MovieController {
         ModelAndView mav = new ModelAndView("/list");
         mav.addObject("listaFilmes", movieService.listaFilme());
 
-
-        System.out.println("########################################################################");
-        System.out.println("########################################################################");
-        System.out.println("########################################################################");
-        System.out.println("########################################################################");
-        System.out.println("########################################################################");
-        System.out.println("########################################################################");
-        System.out.println("########################################################################");
-        System.out.println("########################################################################");
-        System.out.println("########################################################################");
-        System.out.println("########################################################################");
         System.out.println(mav);
 
        // mav.setViewName("mostrarFilmes");
