@@ -18,19 +18,22 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="row">#</th>
-                    <th scope="row">MAMA EU</th>
-                    <th scope="row">Sinopse do jnon</th>
-                    <th scope="row">Gênero do filme</th>
+             
+                    <th scope="row">Titulo</th>
+                    <th scope="row">Gênero</th>
+                    <th scope="row">Ano de lançamento</th>
+
+
             </thead>
 
-            <tbody>
+            <tbody data-th-each="filme :  ${listaFilmes}" >
 
-                <tr data-th-each="filme : ${filmes}">
-                    <td data-th-text="${filme.titulo}"></td>
-                    <td data-th-text="${filme.genero}"></td>
-                    <td data-th-text="${filme.anoLancamento}"></td>
-                 </tr>
+                <td data-th-text="${filme.titulo}"></td>
+                <td data-th-text="${filme.genero}"></td>
+                <td data-th-text="${filme.anoLancamento}"></td>
+
+
+                <p></p>
 
             </tbody>
         </table>

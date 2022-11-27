@@ -5,8 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -35,9 +36,28 @@ public class MovieController {
     }
 
 
+    @GetMapping("/findAll")
+    public List listaFilmes(ModelAndView model){
+
+        List<Movies> listaFilmes = movieService.listaFilme();
+
+        model.addObject("list", listaFilmes);
+
+        return listaFilmes;
+    }
 
 
     
+    @PostMapping(value="/createMovie")
+    public void salvar(Movies movies){
+
+        movieService.save(movies);
+
+
+    }
+
+/*
+ *   
     @PostMapping(value="/createMovie")
     public ModelAndView salvar(Movies movies){
 
@@ -49,62 +69,56 @@ public class MovieController {
 
     }
 
-    @GetMapping("/lista")
-    public ModelAndView criarLista(){
-        ModelAndView modelAndView = new ModelAndView("lista");
-        List<Movies> listaFilmes = movieService.listaFilme();
-        modelAndView.addObject("lista", listaFilmes);
+ * 
+ * 
+ */
 
-        System.out.println("########################################################################");
-        System.out.println("########################################################################");
-        System.out.println("########################################################################");
-        System.out.println("########################################################################");
-        System.out.println("########################################################################");
-        System.out.println("########################################################################");
-        System.out.println("########################################################################");
-        System.out.println("########################################################################");
-        System.out.println("########################################################################");
-        System.out.println("########################################################################");
-        System.out.println(listaFilmes);
+
+   
 
 
 
-        modelAndView.setViewName("list.html");
+    @GetMapping("/gerarTela2")
+    public ModelAndView messages() {
+        ModelAndView mav = new ModelAndView("/list");
+        mav.addObject("listaFilmes", movieService.listaFilme());
 
-        return modelAndView;
+
+        System.out.println("########################################################################");
+        System.out.println("########################################################################");
+        System.out.println("########################################################################");
+        System.out.println("########################################################################");
+        System.out.println("########################################################################");
+        System.out.println("########################################################################");
+        System.out.println("########################################################################");
+        System.out.println("########################################################################");
+        System.out.println("########################################################################");
+        System.out.println("########################################################################");
+        System.out.println(mav);
+
+       // mav.setViewName("mostrarFilmes");
+
+        return mav;
     }
-
-
-
-
-
    /* FUNCIONA 
    
-   @PostMapping(value="/createMovie")
+     @PostMapping(value="/createMovie")
     public ModelAndView salvar(Movies movies){
-
 
         movieService.save(movies);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("list.html");
-      
         return modelAndView;
+
     }
+
  */
 
 
 
 
-    @GetMapping("/findAll")
-    public String listaFilmes(ModelAndView model){
-
-        List<Movies> listaFilmes = movieService.listaFilme();
-
-        model.addObject("list", listaFilmes);
-
-        return "list.html";
-    }
+  
 
 
    
