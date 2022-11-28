@@ -11,34 +11,20 @@
 </head>
 
 <body>
-
-    <h1>Lista de filmes</h1>
-
-    <section class="cartaofilme">
-
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="row">Titulo</th>
-                    <th scope="row">Gênero</th>
-                    <th scope="row">Ano de lançamento</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tbody data-th-each="filme :  ${listaFilmes}" >
-
-                    <td data-th-text="${filme.titulo}"></td>
-                    <td data-th-text="${filme.genero}"></td>
-                    <td data-th-text="${filme.anoLancamento}"></td>
-                </tbody>
-
-            </tbody>
-        </table>
-      
+    <div class="main">
+      <h1>Listagem e inclusão de filmes</h1>
+      <h2>TADS Atividade Desenvolvimento Web 2022-2 - Turma B</h2>
+      <p>Nome completo: <strong>Vinicius Gava Pereira</strong></p>
+      <p>
+        Observações:<br />
+        <em style="color: #aaa"
+          >Para abrir o projeto, basta ativar a api e colocar localhost:8080</em
+        >
+      </p>
+      <p>
         <a class="btn btn-primary" href="/gerarTela">Acrescentar filme novo</a>
-
-    </section>
-</body>
+      </p>
+    </div>
+  </body>
 
 </html>
