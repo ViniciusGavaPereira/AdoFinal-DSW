@@ -1,0 +1,5 @@
+ado\demo\Service\MovieService.class
+ado\demo\Entity\Movies.class
+ado\demo\Controller\MovieController.class
+ado\demo\Repository\MovieRepository.class
+ado\demo\DemoApplication.class
